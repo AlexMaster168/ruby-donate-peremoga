@@ -4,14 +4,16 @@ module Api
   class ApiController < ActionController::API
     include Pundit::Authorization
 
-    rescue_from Pundit::NotAuthorizedError,   with: :render_forbidden
-    rescue_from ActiveRecord::RecordNotFound,  with: :render_not_found
-    rescue_from ActiveRecord::RecordInvalid,   with: :render_unprocessable_entity
+    rescue_from Pundit::NotAuthorizedError,          with: :render_forbidden
+    rescue_from ActiveRecord::RecordNotFound,         with: :render_not_found
+    rescue_from ActiveRecord::RecordInvalid,          with: :render_unprocessable_entity
+    rescue_from ActionController::ParameterMissing,   with: :render_bad_request
+    rescue_from ActionController::InvalidAuthenticityToken, with: :render_unauthorized
 
     before_action :authenticate_user!
 
     def authenticate_user!
-      render json: { error: 'Unauthorized' }, status: :unauthorized unless current_user
+      throw(:warden, scope: :user) unless current_user
     end
 
     def authenticate_user
@@ -40,6 +42,17 @@ module Api
         message: 'You do not have permission to perform this action',
         code: :access_denied
       }, status: :forbidden
+    end
+
+    def render_unauthorized
+      render json: { error: 'Unauthorized' }, status: :unauthorized
+    end
+
+    def render_bad_request(exception)
+      render json: {
+        error: 'Bad request',
+        message: exception.message
+      }, status: :bad_request
     end
 
     def render_not_found(exception)

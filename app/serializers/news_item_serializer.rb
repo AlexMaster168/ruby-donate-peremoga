@@ -8,13 +8,13 @@ class NewsItemSerializer < Blueprinter::Base
   field :image_url do |news_item, _opts|
     next unless news_item.image_file.attached?
 
-    "/rails/active_storage/blobs/#{news_item.image_file.key}/#{news_item.image_file.filename}"
+    "/rails/active_storage/blobs/#{news_item.image_file.blob.signed_id}/#{news_item.image_file.filename}"
   end
 
   association :author, blueprint: UserSerializer
 
   view :list do
-    fields :title, :kind, :created_at
+    fields :title, :kind, :created_at, :author_id
     association :author, blueprint: UserSerializer
   end
 end

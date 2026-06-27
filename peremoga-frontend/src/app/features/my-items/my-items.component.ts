@@ -123,22 +123,22 @@ export class MyItemsComponent implements OnInit {
   }
 
   loadAll() {
-    this.api.getTickets().subscribe({
+    const userId = this.auth.user()?.id;
+    if (!userId) return;
+    const params = { author_id: userId };
+    this.api.getTickets(params).subscribe({
       next: (res) => {
-        const userId = this.auth.user()?.id;
-        this.myTickets.set(res.data.filter(t => t.author_id === userId));
+        this.myTickets.set(res.data);
       }
     });
-    this.api.getFundraisers().subscribe({
+    this.api.getFundraisers(params).subscribe({
       next: (res) => {
-        const userId = this.auth.user()?.id;
-        this.myFundraisers.set(res.data.filter(f => f.author_id === userId));
+        this.myFundraisers.set(res.data);
       }
     });
-    this.api.getNews().subscribe({
+    this.api.getNews(params).subscribe({
       next: (res) => {
-        const userId = this.auth.user()?.id;
-        this.myNews.set(res.data.filter(n => n.author_id === userId));
+        this.myNews.set(res.data);
       }
     });
   }

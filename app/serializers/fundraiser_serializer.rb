@@ -8,7 +8,7 @@ class FundraiserSerializer < Blueprinter::Base
   field :image_url do |fundraiser, _opts|
     next unless fundraiser.image_file.attached?
 
-    "/rails/active_storage/blobs/#{fundraiser.image_file.key}/#{fundraiser.image_file.filename}"
+    "/rails/active_storage/blobs/#{fundraiser.image_file.blob.signed_id}/#{fundraiser.image_file.filename}"
   end
 
   field :progress_percent do |fundraiser, _opts|
@@ -20,7 +20,7 @@ class FundraiserSerializer < Blueprinter::Base
   association :author, blueprint: UserSerializer
 
   view :list do
-    fields :title, :currency, :raised, :total, :created_at
+    fields :title, :currency, :raised, :total, :created_at, :author_id
     field :progress_percent do |fundraiser, _opts|
       next 0 if fundraiser.total.zero?
 

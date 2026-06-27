@@ -7,7 +7,7 @@ class TicketSerializer < Blueprinter::Base
   field :image_url do |ticket, _opts|
     next unless ticket.image_file.attached?
 
-    "/rails/active_storage/blobs/#{ticket.image_file.key}/#{ticket.image_file.filename}"
+    "/rails/active_storage/blobs/#{ticket.image_file.blob.signed_id}/#{ticket.image_file.filename}"
   end
 
   association :category, blueprint: CategorySerializer
@@ -16,7 +16,7 @@ class TicketSerializer < Blueprinter::Base
   end
 
   view :list do
-    fields :title, :ticket_type, :location, :created_at
+    fields :title, :ticket_type, :location, :created_at, :author_id
     association :category, blueprint: CategorySerializer
   end
 end

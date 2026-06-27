@@ -35,9 +35,9 @@ module Api
       def create
         @news_item = NewsItem.new(news_item_params.except(:image_file).merge(author: current_user))
         authorize @news_item
-        @news_item.save!
-        if params[:news_item] && params[:news_item][:image_file]
-          @news_item.image_file.attach(params[:news_item][:image_file])
+        @news_item.transaction do
+          @news_item.save!
+          attach_image(@news_item)
         end
         @news_item.reload
         render_success(NewsItemSerializer.render(@news_item), :created)
@@ -46,9 +46,9 @@ module Api
       # PATCH/PUT /api/v1/news_items/:id
       def update
         authorize @news_item
-        @news_item.update!(news_item_params.except(:image_file))
-        if params[:news_item] && params[:news_item][:image_file]
-          @news_item.image_file.attach(params[:news_item][:image_file])
+        @news_item.transaction do
+          @news_item.update!(news_item_params.except(:image_file))
+          attach_image(@news_item)
         end
         @news_item.reload
         render_success(NewsItemSerializer.render(@news_item))
@@ -77,8 +77,15 @@ module Api
         )
       end
 
+      def attach_image(record)
+        return unless params[:news_item] && params[:news_item][:image_file]
+
+        record.image_file.attach(params[:news_item][:image_file])
+      end
+
       def filter(scope)
         scope = scope.where(kind: params[:kind]) if params[:kind].present?
+        scope = scope.where(author_id: params[:author_id]) if params[:author_id].present?
         scope
       end
     end

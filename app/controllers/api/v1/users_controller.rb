@@ -28,7 +28,11 @@ module Api
 
       def update
         authorize @user
-        @user.update!(update_user_params)
+        @user.transaction do
+          @user.update!(update_user_params.except(:avatar))
+          attach_avatar
+        end
+        @user.reload
         render_success(UserSerializer.render(@user))
       end
 
@@ -70,8 +74,15 @@ module Api
           :last_name,
           :organization_name,
           :biography,
-          :location
+          :location,
+          :avatar
         )
+      end
+
+      def attach_avatar
+        return unless params[:user] && params[:user][:avatar]
+
+        @user.avatar.attach(params[:user][:avatar])
       end
     end
   end

@@ -34,9 +34,9 @@ module Api
       def create
         @fundraiser = Fundraiser.new(fundraiser_create_params.except(:image_file).merge(author: current_user))
         authorize @fundraiser
-        @fundraiser.save!
-        if params[:fundraiser] && params[:fundraiser][:image_file]
-          @fundraiser.image_file.attach(params[:fundraiser][:image_file])
+        @fundraiser.transaction do
+          @fundraiser.save!
+          attach_image(@fundraiser)
         end
         @fundraiser.reload
         render_success(FundraiserSerializer.render(@fundraiser), :created)
@@ -45,9 +45,9 @@ module Api
       # PATCH/PUT /api/v1/fundraisers/:id
       def update
         authorize @fundraiser
-        @fundraiser.update!(fundraiser_update_params.except(:image_file))
-        if params[:fundraiser] && params[:fundraiser][:image_file]
-          @fundraiser.image_file.attach(params[:fundraiser][:image_file])
+        @fundraiser.transaction do
+          @fundraiser.update!(fundraiser_update_params.except(:image_file))
+          attach_image(@fundraiser)
         end
         @fundraiser.reload
         render_success(FundraiserSerializer.render(@fundraiser))
@@ -82,13 +82,22 @@ module Api
           :title,
           :description,
           :image,
+          :currency,
           :raised,
+          :total,
           :image_file
         )
       end
 
+      def attach_image(record)
+        return unless params[:fundraiser] && params[:fundraiser][:image_file]
+
+        record.image_file.attach(params[:fundraiser][:image_file])
+      end
+
       def filter(scope)
         scope = scope.where(currency: params[:currency]) if params[:currency].present?
+        scope = scope.where(author_id: params[:author_id]) if params[:author_id].present?
         scope
       end
     end

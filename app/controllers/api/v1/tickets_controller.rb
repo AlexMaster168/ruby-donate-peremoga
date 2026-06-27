@@ -33,9 +33,9 @@ module Api
       def create
         @ticket = Ticket.new(ticket_params.except(:image_file).merge(author: current_user))
         authorize @ticket
-        @ticket.save!
-        if params[:ticket] && params[:ticket][:image_file]
-          @ticket.image_file.attach(params[:ticket][:image_file])
+        @ticket.transaction do
+          @ticket.save!
+          attach_image(@ticket)
         end
         @ticket.reload
         render_success(TicketSerializer.render(@ticket), :created)
@@ -44,9 +44,9 @@ module Api
       # PATCH/PUT /api/v1/tickets/:id
       def update
         authorize @ticket
-        @ticket.update!(ticket_params.except(:image_file))
-        if params[:ticket] && params[:ticket][:image_file]
-          @ticket.image_file.attach(params[:ticket][:image_file])
+        @ticket.transaction do
+          @ticket.update!(ticket_params.except(:image_file))
+          attach_image(@ticket)
         end
         @ticket.reload
         render_success(TicketSerializer.render(@ticket))
@@ -77,10 +77,17 @@ module Api
         )
       end
 
+      def attach_image(record)
+        return unless params[:ticket] && params[:ticket][:image_file]
+
+        record.image_file.attach(params[:ticket][:image_file])
+      end
+
       def filter(scope)
         scope = scope.where(ticket_type: params[:ticket_type])              if params[:ticket_type].present?
         scope = scope.where(category_id: params[:category_id]) if params[:category_id].present?
         scope = scope.where("location ILIKE ?", "%#{params[:location]}%") if params[:location].present?
+        scope = scope.where(author_id: params[:author_id]) if params[:author_id].present?
         scope
       end
     end

@@ -1,0 +1,50 @@
+# Omakase Ruby styling for Rails
+inherit_gem:
+  rubocop-rails-omakase: rubocop.yml
+
+plugins:
+  - rubocop-rails
+  - rubocop-performance
+  - rubocop-rspec
+  - rubocop-factory_bot
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "vendor/**/*"
+    - "db/schema.rb"
+    - "bin/**/*"
+
+Metrics/MethodLength:
+  Max: 30
+
+Metrics/ClassLength:
+  Max: 250
+
+RSpec/ExampleLength:
+  Max: 15
+
+RSpec/MultipleExpectations:
+  Max: 5
+
+RSpec/MultipleMemoizedHelpers:
+  Exclude:
+    - 'spec/integration/**/*'
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: always
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+  ConsistentQuotesInMultiline: true
+  Include:
+    - 'spec/**/*'
+
+# rswag DSL (path/post/response) is not recognized by RSpec cops
+RSpec/EmptyExampleGroup:
+  Exclude:
+    - "spec/integration/**/*"
+
+RSpec/DescribeClass:
+  Exclude:
+    - "spec/integration/**/*"

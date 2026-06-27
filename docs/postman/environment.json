@@ -1,0 +1,172 @@
+{
+	"id": "097cbada-4ec4-4aaa-93b9-090f13923c1c",
+	"name": "DP local",
+	"values": [
+		{
+			"key": "base_url",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "first_name",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "last_name",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "organiztion_name",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "email",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "password",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "access_token",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "role",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "current_user",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "updated_biography",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "ticket",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "location",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "ticket_title",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "category_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "ticket_type",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "ticket_description",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "news_item_kind",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "news_item_description",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "news_title",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "news_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "fundraiser_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "fundraiser_title",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "fundraiser_description",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "fundraiser_image",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "fundraiser_total",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "currency",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "raised",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"color": null,
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2026-05-27T06:51:27.691Z",
+	"_postman_exported_using": "Postman/12.6.8"
+}

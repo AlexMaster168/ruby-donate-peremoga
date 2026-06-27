@@ -1,0 +1,9 @@
+exclude:
+  - 'vendor/**/*'
+  - 'bin/**/*'
+  - 'db/schema.rb'
+  - 'db/migrate/*.rb'
+  - 'node_modules/**/*'
+  - 'tmp/**/*'
+  - 'coverage/**/*'
+  - 'script/**/*'

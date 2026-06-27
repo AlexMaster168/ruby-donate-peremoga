@@ -1,0 +1,103 @@
+# See https://github.com/troessner/reek#configuration-file
+detectors:
+  DuplicateMethodCall:
+    enabled: true
+    max_calls: 4
+
+  LongParameterList:
+    enabled: true
+    max_params: 5
+    overrides:
+      initialize:
+        max_params: 6
+
+  NestedIterators:
+    enabled: true
+    max_allowed_nesting: 2
+    ignore_iterators:
+      - tap
+
+  RepeatedConditional:
+    enabled: true
+    max_ifs: 2
+
+  TooManyInstanceVariables:
+    enabled: true
+    max_instance_variables: 6
+
+  TooManyMethods:
+    enabled: true
+    max_methods: 20
+
+  TooManyStatements:
+    enabled: false
+
+  TooManyConstants:
+    max_constants: 10
+
+  UncommunicativeModuleName:
+    reject:
+      - "^.$"
+
+  UncommunicativeVariableName:
+    accept:
+      - t
+      - f
+    exclude:
+      - "dummy_items_migration"
+
+  UnusedParameters:
+    enabled: true
+
+  UnusedPrivateMethod:
+    enabled: true
+    exclude:
+      - "Api::ApiController#authenticate_request"
+      - "Api::ApiController#current_user_id"
+      - "Song#authors_belong_to_album"
+      - "Api::V1::PlaylistsController#set_playlist"
+      - "Api::V1::UsersController#set_user"
+      - "Api::V1::TicketsController#set_ticket"
+      - "Api::V1::NewsItemsController#set_news_item"
+      - "Api::V1::FundraisersController#set_fundraiser"
+      - "Api::ApiController#render_success"
+      - "Api::ApiController#render_forbidden"
+      - "Api::ApiController#render_not_found"
+      - "Api::ApiController#render_unprocessable_entity"
+      - "Api::V1::SessionsController#respond_to_on_destroy"
+      - "Api::V1::SessionsController#respond_with"
+
+  MissingSafeMethod:
+    exclude:
+      - 'Api::ApiController#authenticate_user!'
+
+  IrresponsibleModule:
+    enabled: false
+
+  FeatureEnvy:
+    enabled: false
+
+  InstanceVariableAssumption:
+    enabled: false
+
+  DataClump:
+    enabled: false
+
+  ControlParameter:
+    enabled: false
+
+  BooleanParameter:
+    enabled: false
+
+  UtilityFunction:
+    enabled: false
+
+exclude_paths:
+  - bin
+  - db/schema.rb
+  - db/migrate
+  - node_modules
+  - config
+  - spec
+  - vendor
+  - ci/**/*

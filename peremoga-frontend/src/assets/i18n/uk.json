@@ -1,0 +1,106 @@
+{
+  "APP": {
+    "NAME": "Перемога",
+    "TAGLINE": "Перемога через єдність"
+  },
+  "NAV": {
+    "HOME": "Головна",
+    "TICKETS": "Заявки",
+    "FUNDRAISERS": "Збори",
+    "NEWS": "Новини",
+    "DASHBOARD": "Панель",
+    "MY_ITEMS": "Мої заяви",
+    "PROFILE": "Профіль",
+    "LOGIN": "Увійти",
+    "REGISTER": "Реєстрація",
+    "LOGOUT": "Вийти"
+  },
+  "AUTH": {
+    "LOGIN_TITLE": "Увійти",
+    "REGISTER_TITLE": "Створити акаунт",
+    "EMAIL": "Електронна пошта",
+    "PASSWORD": "Пароль",
+    "PASSWORD_CONFIRM": "Підтвердіть пароль",
+    "FIRST_NAME": "Ім'я",
+    "LAST_NAME": "Прізвище",
+    "ORG_NAME": "Назва організації",
+    "ROLE": "Я є...",
+    "ROLE_INDIVIDUAL": "Фізична особа",
+    "ROLE_ORGANIZATION": "Організація",
+    "LOGIN_BUTTON": "Увійти",
+    "REGISTER_BUTTON": "Створити акаунт",
+    "NO_ACCOUNT": "Немає акаунту?",
+    "HAS_ACCOUNT": "Вже є акаунт?",
+    "FORGOT_PASSWORD": "Забули пароль?"
+  },
+  "TICKETS": {
+    "TITLE": "Заявки",
+    "CREATE": "Створити заявку",
+    "OFFER": "Пропозиція",
+    "REQUEST": "Запит",
+    "ALL": "Всі",
+    "TYPE": "Тип",
+    "LOCATION": "Місцезнаходження",
+    "CATEGORY": "Категорія",
+    "SEARCHPlaceholder": "Пошук заявок...",
+    "NO_TICKETS": "Заявок не знайдено",
+    "DETAIL": "Деталі заявки",
+    "COMMENTS": "Коментарі",
+    "ADD_COMMENT": "Додати коментар...",
+    "POST_COMMENT": "Надіслати"
+  },
+  "FUNDRAISERS": {
+    "TITLE": "Збори",
+    "CREATE": "Створити збір",
+    "RAISED": "Зібрано",
+    "GOAL": "Мета",
+    "PROGRESS": "Прогрес",
+    "DONATE": "Пожертвувати",
+    "NO_FUNDRAISERS": "Зборів не знайдено"
+  },
+  "NEWS": {
+    "TITLE": "Новини та події",
+    "CREATE": "Створити новину",
+    "NEWS": "Новини",
+    "EVENT": "Подія",
+    "ALL": "Всі",
+    "NO_NEWS": "Новин не знайдено"
+  },
+  "DASHBOARD": {
+    "TITLE": "Панель управління",
+    "TOTAL_USERS": "Користувачів",
+    "TOTAL_TICKETS": "Заявок",
+    "TOTAL_FUNDRAISERS": "Зборів",
+    "TOTAL_RAISED": "Зібрано всього",
+    "TOTAL_NEWS": "Новин",
+    "TOTAL_COMMENTS": "Коментарів"
+  },
+  "COMMON": {
+    "LOADING": "Завантаження...",
+    "SAVE": "Зберегти",
+    "CANCEL": "Скасувати",
+    "DELETE": "Видалити",
+    "EDIT": "Редагувати",
+    "BACK": "Назад",
+    "SUBMIT": "Надіслати",
+    "ERROR": "Помилка",
+    "SUCCESS": "Успішно",
+    "IMAGE": "Зображення",
+    "CONFIRM_DELETE": "Ви впевнені, що хочете видалити це?"
+  },
+  "FOOTER": {
+    "RIGHTS": "Всі права захищено",
+    "ABOUT": "Про Перемогу",
+    "CONTACT": "Контакти",
+    "PRIVACY": "Політика конфіденційності"
+  },
+  "ADMIN": {
+    "MANAGE_USERS": "Керування користувачами",
+    "MANAGE_CONTENT": "Керування контентом"
+  },
+  "MY_ITEMS": {
+    "NO_TICKETS": "Ви ще не створили жодної заявки",
+    "NO_FUNDRAISERS": "Ви ще не створили жодного збору",
+    "NO_NEWS": "Ви ще не створили жодної новини"
+  }
+}

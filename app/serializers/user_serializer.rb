@@ -1,0 +1,12 @@
+# frozen_string_literal: true
+
+class UserSerializer < Blueprinter::Base
+  identifier :id
+  fields :email, :role, :location, :biography, :created_at
+
+  view :normal do
+    field :first_name,       if: ->(_name, user, _opts) { user.individual? }
+    field :last_name,        if: ->(_name, user, _opts) { user.individual? }
+    field :organization_name, if: ->(_name, user, _opts) { user.organization? }
+  end
+end

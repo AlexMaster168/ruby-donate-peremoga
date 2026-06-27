@@ -1,0 +1,38 @@
+pre-commit:
+  parallel: true
+  commands:
+    rubocop:
+      tags: style
+      run: |
+        git diff --cached --name-only -z --diff-filter=ACM \
+          | grep -z '\.rb$' \
+          | xargs -0 -r bundle exec rubocop --force-exclusion --parallel
+
+    reek:
+      tags: style
+      run: |
+        git diff --cached --name-only -z --diff-filter=ACM \
+          | grep -z '\.rb$' \
+          | xargs -0 -r bundle exec reek
+
+    fasterer:
+      tags: performance
+      run: |
+        git diff --cached --name-only -z --diff-filter=ACM \
+          | grep -z '\.rb$' \
+          | xargs -0 -r bundle exec fasterer
+
+pre-push:
+  parallel: false
+  commands:
+    brakeman:
+      tags: security
+      run: bundle exec brakeman --quiet --format tabs
+
+    bundle-audit:
+      tags: security
+      run: bundle exec bundle-audit update && bundle exec bundle-audit check
+
+    bundle-leak:
+      tags: security
+      run: bundle exec bundle-leak update && bundle exec bundle-leak check

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="rspec" tests="25" skipped="0" failures="0" errors="0" time="1.390438" timestamp="2026-06-27T13:40:13+03:00" hostname="AlexComp">
+<properties>
+<property name="seed" value="28290"/>
+</properties>
+<testcase classname="spec.requests.api.v1.categories_spec" name="Categories API /api/v1/categories get categories listed returns a 200 response" file="./spec/requests/api/v1/categories_spec.rb" time="0.287733"></testcase>
+<testcase classname="spec.requests.api.v1.news_spec" name="News API /api/v1/news post news created returns a 201 response" file="./spec/requests/api/v1/news_spec.rb" time="0.158976"></testcase>
+<testcase classname="spec.requests.api.v1.news_spec" name="News API /api/v1/news get news listed returns a 200 response" file="./spec/requests/api/v1/news_spec.rb" time="0.041236"></testcase>
+<testcase classname="spec.requests.api.v1.news_spec" name="News API /api/v1/news/{id} delete news deleted returns a 204 response" file="./spec/requests/api/v1/news_spec.rb" time="0.040579"></testcase>
+<testcase classname="spec.requests.api.v1.news_spec" name="News API /api/v1/news/{id} get news found returns a 200 response" file="./spec/requests/api/v1/news_spec.rb" time="0.029115"></testcase>
+<testcase classname="spec.requests.api.v1.fundraisers_spec" name="Fundraisers API /api/v1/fundraisers post fundraiser created returns a 201 response" file="./spec/requests/api/v1/fundraisers_spec.rb" time="0.049184"></testcase>
+<testcase classname="spec.requests.api.v1.fundraisers_spec" name="Fundraisers API /api/v1/fundraisers get fundraisers listed returns a 200 response" file="./spec/requests/api/v1/fundraisers_spec.rb" time="0.027641"></testcase>
+<testcase classname="spec.requests.api.v1.fundraisers_spec" name="Fundraisers API /api/v1/fundraisers/{id} get fundraiser found returns a 200 response" file="./spec/requests/api/v1/fundraisers_spec.rb" time="0.025797"></testcase>
+<testcase classname="spec.requests.api.v1.fundraisers_spec" name="Fundraisers API /api/v1/fundraisers/{id} delete fundraiser deleted returns a 204 response" file="./spec/requests/api/v1/fundraisers_spec.rb" time="0.029499"></testcase>
+<testcase classname="spec.requests.api.v1.comments_spec" name="Comments API /api/v1/tickets/{ticket_id}/comments get comments listed returns a 200 response" file="./spec/requests/api/v1/comments_spec.rb" time="0.209873"></testcase>
+<testcase classname="spec.requests.api.v1.comments_spec" name="Comments API /api/v1/tickets/{ticket_id}/comments post comment created returns a 201 response" file="./spec/requests/api/v1/comments_spec.rb" time="0.055682"></testcase>
+<testcase classname="spec.requests.api.v1.users_spec" name="Users API /api/v1/users/{id} get user found returns a 200 response" file="./spec/requests/api/v1/users_spec.rb" time="0.029371"></testcase>
+<testcase classname="spec.requests.api.v1.users_spec" name="Users API /api/v1/users/{id} delete user deleted returns a 204 response" file="./spec/requests/api/v1/users_spec.rb" time="0.022159"></testcase>
+<testcase classname="spec.requests.api.v1.users_spec" name="Users API /api/v1/users/{id} patch user updated returns a 200 response" file="./spec/requests/api/v1/users_spec.rb" time="0.028455"></testcase>
+<testcase classname="spec.requests.api.v1.users_spec" name="Users API /api/v1/users post user registered returns a 201 response" file="./spec/requests/api/v1/users_spec.rb" time="0.021566"></testcase>
+<testcase classname="spec.requests.api.v1.users_spec" name="Users API /api/v1/users get users listed returns a 200 response" file="./spec/requests/api/v1/users_spec.rb" time="0.031094"></testcase>
+<testcase classname="spec.requests.api.v1.auth_spec" name="Auth API /api/v1/login post invalid credentials returns a 401 response" file="./spec/requests/api/v1/auth_spec.rb" time="0.017906"></testcase>
+<testcase classname="spec.requests.api.v1.auth_spec" name="Auth API /api/v1/login post signed in returns a 200 response" file="./spec/requests/api/v1/auth_spec.rb" time="0.020320"></testcase>
+<testcase classname="spec.requests.api.v1.auth_spec" name="Auth API /api/v1/logout delete signed out returns a 200 response" file="./spec/requests/api/v1/auth_spec.rb" time="0.026477"></testcase>
+<testcase classname="spec.requests.api.v1.tickets_spec" name="Tickets API /api/v1/tickets/{id} patch ticket updated returns a 200 response" file="./spec/requests/api/v1/tickets_spec.rb" time="0.049506"></testcase>
+<testcase classname="spec.requests.api.v1.tickets_spec" name="Tickets API /api/v1/tickets/{id} get ticket found returns a 200 response" file="./spec/requests/api/v1/tickets_spec.rb" time="0.031824"></testcase>
+<testcase classname="spec.requests.api.v1.tickets_spec" name="Tickets API /api/v1/tickets/{id} delete ticket deleted returns a 204 response" file="./spec/requests/api/v1/tickets_spec.rb" time="0.029964"></testcase>
+<testcase classname="spec.requests.api.v1.tickets_spec" name="Tickets API /api/v1/tickets post ticket created returns a 201 response" file="./spec/requests/api/v1/tickets_spec.rb" time="0.034970"></testcase>
+<testcase classname="spec.requests.api.v1.tickets_spec" name="Tickets API /api/v1/tickets get tickets listed returns a 200 response" file="./spec/requests/api/v1/tickets_spec.rb" time="0.035696"></testcase>
+<testcase classname="spec.requests.api.v1.search_spec" name="Search API /api/v1/search get search results returns a 200 response" file="./spec/requests/api/v1/search_spec.rb" time="0.019662"></testcase>
+</testsuite>

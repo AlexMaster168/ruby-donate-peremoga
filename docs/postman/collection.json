@@ -1,0 +1,630 @@
+{
+  "info": {
+    "_postman_id": "33032ee6-619c-4a5e-921b-5b8aac85ca45",
+    "name": "DP",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43275388"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "fundraisers",
+              "item": [
+                {
+                  "name": "index",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{base_url}}/api/v1/fundraisers",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "fundraisers"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "show",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{base_url}}/api/v1/fundraisers/{{fundraiser_id}}",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "fundraisers",
+                        "{{fundraiser_id}}"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "create",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"fundraiser\": {\n        \"title\":\"{{fundraiser_title}}\",\n        \"description\":\"{{fundraiser_description}}\",\n        \"total\":\"{{fundraiser_total}}\",\n        \"image\":\"{{fundraiser_image}}\",\n        \"currency\":\"{{currency}}\",\n        \"author_id\":\"{{current_user}}\"\n    }\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/api/v1/fundraisers",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "fundraisers"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "update",
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"fundraiser\": {\n        \"raised\":\"{{raised}}\"\n    }\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/api/v1/fundraisers/{{fundraiser_id}}",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "fundraisers",
+                        "{{fundraiser_id}}"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "destroy",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{base_url}}/api/v1/fundraisers/{{fundraiser_id}}",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "fundraisers",
+                        "{{fundraiser_id}}"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "news",
+              "item": [
+                {
+                  "name": "create",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"news_item\": {\n        \"author_id\":\"{{current_user}}\",\n        \"kind\":\"{{news_item_kind}}\",\n        \"image\":\"example.com\",\n        \"description\":\"{{news_item_description}}\",\n        \"title\":\"{{news_title}}\"\n    }\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/api/v1/news_items",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "news_items"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "index",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{base_url}}/api/v1/news_items",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "news_items"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "show",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"news_item\": {\n        \"author_id\":\"{{current_user}}\",\n        \"kind\":\"{{news_item_kind}}\",\n        \"image\":\"example.com\",\n        \"description\":\"{{news_item_description}}\",\n        \"title\":\"{{news_title}}\"\n    }\n}"
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/api/v1/news_items/{{news_id}}",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "news_items",
+                        "{{news_id}}"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "update",
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"news_item\": {\n        \"image\":\"example3.com\"\n    }\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/api/v1/news_items/{{news_id}}",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "news_items",
+                        "{{news_id}}"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "destroy",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{base_url}}/api/v1/news_items/{{news_id}}",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "news_items",
+                        "{{news_id}}"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "users",
+              "item": [
+                {
+                  "name": "sign_up",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"user\": {\n        \"first_name\":\"{{first_name}}\",\n        \"last_name\":\"{{last_name}}\",\n        \"email\":\"{{email}}\",\n        \"password\":\"{{password}}\",\n        \"password_confirmation\":\"{{password}}\"\n    }\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/api/v1/users",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "users"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "update",
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"user\": {\n        \"biography\": \"{{updated_biography}}\"\n    }\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/api/v1/users/{{current_user}}",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "users",
+                        "{{current_user}}"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "destroy",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/api/v1/users/{{current_user}}",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "users",
+                        "{{current_user}}"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "tickets",
+              "item": [
+                {
+                  "name": "index",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{base_url}}/api/v1/tickets",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "tickets"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "show",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{base_url}}/api/v1/tickets/{{ticket}}",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "tickets",
+                        "{{ticket}}"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "create",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"ticket\": {\n        \"title\":\"{{ticket_title}}\",\n        \"ticket_type\":\"{{ticket_type}}\",\n        \"author_id\":\"{{current_user}}\",\n        \"category_id\":\"{{category_id}}\",\n        \"description\":\"{{ticket_description}}\",\n        \"image\":\"example.com\",\n        \"location\":\"{{location}}\"\n    }\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/api/v1/tickets",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "tickets"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "update",
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"ticket\": {\n        \"title\": \"test-test\"\n    }\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/api/v1/tickets/{{ticket}}",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "tickets",
+                        "{{ticket}}"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "destroy",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{base_url}}/api/v1/tickets/{{ticket}}",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "tickets",
+                        "{{ticket}}"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "auth",
+              "item": [
+                {
+                  "name": "sign_in",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"user\": {\n        \"email\":\"{{email}}\",\n        \"password\":\"{{password}}\"\n    }\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/api/v1/login",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "login"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "sign_out",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{base_url}}/api/v1/logout",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "logout"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
